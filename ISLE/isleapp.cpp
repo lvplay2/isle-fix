@@ -586,7 +586,7 @@ MxResult IsleApp::SetupWindow(HINSTANCE hInstance, LPSTR lpCmdLine)
 			WS_EX_APPWINDOW,
 			WNDCLASS_NAME,
 			WINDOW_TITLE,
-			WS_CAPTION | WS_SYSMENU,
+			WS_POPUP,
 			g_windowRect.left,
 			g_windowRect.top,
 			g_windowRect.right - g_windowRect.left + 1,
