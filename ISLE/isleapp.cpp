@@ -369,7 +369,7 @@ BOOL StartDirectSound()
 // FUNCTION: ISLE 0x401d20
 LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	NotificationId type;
+	NotificationId type = (NotificationId) 0;
 	unsigned char keyCode = 0;
 
 	if (!g_isle) {
@@ -516,7 +516,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		return DefWindowProc(hWnd, uMsg, wParam, lParam);
 	}
 
-	if (g_isle) {
+	if (g_isle && type != 0) {
 		if (InputManager()) {
 			InputManager()->QueueEvent(type, wParam, LOWORD(lParam), HIWORD(lParam), keyCode);
 		}
