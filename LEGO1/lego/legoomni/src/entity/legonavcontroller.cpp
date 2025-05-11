@@ -57,7 +57,7 @@ float LegoNavController::g_defzeroThreshold = 0.001f;
 float LegoNavController::g_defmaxLinearVel = 40.0f;
 
 // GLOBAL: LEGO1 0x100f4c34
-float LegoNavController::g_defmaxRotationalVel = 20.0f;
+float LegoNavController::g_defmaxRotationalVel = 2.0f;
 
 // GLOBAL: LEGO1 0x100f4c38
 float LegoNavController::g_defmaxLinearAccel = 15.0f;
