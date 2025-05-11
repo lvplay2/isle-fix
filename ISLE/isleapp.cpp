@@ -809,7 +809,7 @@ inline void IsleApp::Tick(BOOL sleepIfNotNextFrame)
 	static MxLong g_lastFrameTime = 0;
 
 	// GLOBAL: ISLE 0x4101bc
-	static int g_startupDelay = 200;
+	static int g_startupDelay = 1;
 
 	if (!m_windowActive) {
 		Sleep(0);
