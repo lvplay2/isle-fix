@@ -204,7 +204,7 @@ jobs:
     name: Upload artifacts
     needs: [compare]
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'isledecomp/isle' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'lvplay2/isle-fix' }}
     steps:
     - uses: actions/checkout@v4
       with:
