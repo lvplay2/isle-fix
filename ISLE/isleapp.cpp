@@ -580,7 +580,7 @@ MxResult IsleApp::SetupWindow(HINSTANCE hInstance, LPSTR lpCmdLine)
 	}
 
 	if (m_fullScreen) {
-		AdjustWindowRectEx(&g_windowRect, WS_CAPTION | WS_SYSMENU, 0, WS_EX_APPWINDOW);
+		AdjustWindowRectEx(&g_windowRect, 0, 0, WS_EX_APPWINDOW);
 
 		m_windowHandle = CreateWindowEx(
 			WS_EX_APPWINDOW,
