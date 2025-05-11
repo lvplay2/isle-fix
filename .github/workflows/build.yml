@@ -139,10 +139,6 @@ jobs:
        name: Win32
        path: build
 
-    - uses: actions/download-artifact@main
-      with:
-        name: Accuracy Report
-
     - name: Upload Continuous Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -152,8 +148,6 @@ jobs:
           build/CONFIG.EXE \
           build/ISLE.EXE \
           build/LEGO1.DLL \
-          CONFIGPROGRESS* \
-          ISLEPROGRESS* \
           LEGO1PROGRESS*
 
         curl -X POST -F key=$UPLOAD_KEY -F 'file=@CONFIGPROGRESS.SVG' https://legoisland.org/progress/
