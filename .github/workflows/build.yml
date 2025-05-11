@@ -148,8 +148,3 @@ jobs:
           build/CONFIG.EXE \
           build/ISLE.EXE \
           build/LEGO1.DLL \
-          LEGO1PROGRESS*
-
-        curl -X POST -F key=$UPLOAD_KEY -F 'file=@CONFIGPROGRESS.SVG' https://legoisland.org/progress/
-        curl -X POST -F key=$UPLOAD_KEY -F 'file=@ISLEPROGRESS.SVG' https://legoisland.org/progress/
-        curl -X POST -F key=$UPLOAD_KEY -F 'file=@LEGO1PROGRESS.SVG' https://legoisland.org/progress/
