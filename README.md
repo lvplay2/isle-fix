@@ -3,6 +3,11 @@
 
 This is a functionally complete decompilation of LEGO Island (Version 1.1, English). It aims to be as playable as possible, fixing bugs as much as possible. The goal is to provide a fixed codebase that can be modified, improved, and ported to other platforms later on.
 
+**Fixes:**
+- Exit crash fixed
+- Startup delay removed
+- Camera sensitivity fixed
+- Annoying white bar in full screen removed
 ## Building
 
 This project uses the [CMake](https://cmake.org/) build system, which allows for a high degree of versatility regarding compilers and development environments. For the most accurate results, Microsoft Visual C++ 4.20 (the same compiler used to build the original game) is recommended. Since we're trying to match the output of this code to the original executables as closely as possible, all contributions will be graded with the output of this compiler.
