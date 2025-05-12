@@ -1,16 +1,7 @@
-# LEGO Island Decompilation
+# LEGO Island with fixes
+**(Original decomp by [isledecomp](https://github.com/isledecomp))**
 
-[Development Vlog](https://www.youtube.com/playlist?list=PLbpl-gZkNl2Db4xcAsT_xOfOwRk-2DPHL) | [Contributing](/CONTRIBUTING.md) | [Matrix](https://matrix.to/#/#isledecomp:matrix.org) | [Forums](https://forum.mattkc.com/viewforum.php?f=1) | [Patreon](https://www.patreon.com/mattkc)
-  
-This is a functionally complete decompilation of LEGO Island (Version 1.1, English). It aims to be as accurate as possible, matching the recompiled instructions to the original machine code as much as possible. The goal is to provide a workable codebase that can be modified, improved, and ported to other platforms later on.
-
-## Status
-
-<img src="https://legoisland.org/progress/ISLEPROGRESS.SVG" width="50%"><img src="https://legoisland.org/progress/LEGO1PROGRESS.SVG" width="50%">
-
-Both `ISLE.EXE` and `LEGO1.DLL` are completely decompiled and, to the best of our knowledge, are functionally identical to the originals. However, work is still ongoing to improve the accuracy, naming, documentation, and structure of the source code. While there may still be unresolved bugs that are not present in retail, the game should be fully playable with the binaries derived from this source code.
-
-Due to various complexities with regard to the compiler, these binaries are not a byte-for-byte match of the original executables. We remain hopeful that this can be resolved at some point.
+This is a functionally complete decompilation of LEGO Island (Version 1.1, English). It aims to be as playable as possible, fixing bugs as much as possible. The goal is to provide a fixed codebase that can be modified, improved, and ported to other platforms later on.
 
 ## Building
 
@@ -73,10 +64,6 @@ The simplest way to use the recompiled binaries is to swap the original executab
 For advanced users, you can get LEGO Island to run from anywhere as long as `ISLE.EXE` and `LEGO1.DLL` are in the same directory and the `cdpath` and `diskpath` registry keys (usually found in `HKEY_LOCAL_MACHINE\Software\Mindscape\LEGO Island` on 32-bit operating systems and `HKEY_LOCAL_MACHINE\Software\Wow6432Node\Mindscape\LEGO Island` on 64-bit operating systems) point to the correct location for the asset files (the directory that contains the `LEGO` folder).
 
 If you see an error about `d3drm.dll`, you will need to acquire a copy and place it in the same directory as the game executables, as it has not shipped with Windows since Windows XP. We have published a [known good copy here](https://legoisland.org/download/d3drm.zip) that works with LEGO Island.
-
-## Contributing
-
-If you're interested in helping or contributing to this project, check out the [CONTRIBUTING](/CONTRIBUTING.md) page.
 
 ## Additional Information
 
