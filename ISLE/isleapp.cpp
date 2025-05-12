@@ -44,23 +44,20 @@ unsigned char g_mousemoved = 0;
 // GLOBAL: ISLE 0x41003c
 BOOL g_closed = FALSE;
 
-// GLOBAL: ISLE 0x410058
-int g_targetWidth = GetSystemMetrics(SM_CXSCREEN);
-
-// GLOBAL: ISLE 0x41005c
-int g_targetHeight = GetSystemMetrics(SM_CYSCREEN);
-
 // GLOBAL: ISLE 0x410040
 RECT g_windowRect = {0, 0, 640, 480};
-
-// GLOBAL: ISLE (none lol)
-RECT g_fullscreenRect = {0, 0, g_targetWidth, g_targetWidth};
 
 // GLOBAL: ISLE 0x410050
 BOOL g_rmDisabled = FALSE;
 
 // GLOBAL: ISLE 0x410054
 BOOL g_waitingForTargetDepth = TRUE;
+
+// GLOBAL: ISLE 0x410058
+int g_targetWidth = 640;
+
+// GLOBAL: ISLE 0x41005c
+int g_targetHeight = 480;
 
 // GLOBAL: ISLE 0x410060
 int g_targetDepth = 16;
@@ -389,10 +386,10 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			if ((wParam != 0) && (g_isle->GetFullScreen())) {
 				MoveWindow(
 					hWnd,
-					g_fullscreenRect.left,
-					g_fullscreenRect.top,
-					(g_fullscreenRect.right - g_fullscreenRect.left) + 1,
-					(g_fullscreenRect.bottom - g_fullscreenRect.top) + 1,
+					g_windowRect.left,
+					g_windowRect.top,
+					(g_windowRect.right - g_windowRect.left) + 1,
+					(g_windowRect.bottom - g_windowRect.top) + 1,
 					TRUE
 				);
 			}
@@ -583,17 +580,17 @@ MxResult IsleApp::SetupWindow(HINSTANCE hInstance, LPSTR lpCmdLine)
 	}
 
 	if (m_fullScreen) {
-		AdjustWindowRectEx(&g_fullscreenRect, 0, 0, WS_EX_APPWINDOW);
+		AdjustWindowRectEx(&g_windowRect, 0, 0, WS_EX_APPWINDOW);
 
 		m_windowHandle = CreateWindowEx(
 			WS_EX_APPWINDOW,
 			WNDCLASS_NAME,
 			WINDOW_TITLE,
 			WS_POPUP,
-			g_fullscreenRect.left,
-			g_fullscreenRect.top,
-			g_fullscreenRect.right - g_fullscreenRect.left + 1,
-			g_fullscreenRect.bottom - g_fullscreenRect.top + 1,
+			g_windowRect.left,
+			g_windowRect.top,
+			g_windowRect.right - g_windowRect.left + 1,
+			g_windowRect.bottom - g_windowRect.top + 1,
 			NULL,
 			NULL,
 			hInstance,
@@ -626,10 +623,10 @@ MxResult IsleApp::SetupWindow(HINSTANCE hInstance, LPSTR lpCmdLine)
 	if (m_fullScreen) {
 		MoveWindow(
 			m_windowHandle,
-			g_fullscreenRect.left,
-			g_fullscreenRect.top,
-			(g_fullscreenRect.right - g_fullscreenRect.left) + 1,
-			(g_fullscreenRect.bottom - g_fullscreenRect.top) + 1,
+			g_windowRect.left,
+			g_windowRect.top,
+			(g_windowRect.right - g_windowRect.left) + 1,
+			(g_windowRect.bottom - g_windowRect.top) + 1,
 			TRUE
 		);
 	}
@@ -672,10 +669,10 @@ MxResult IsleApp::SetupWindow(HINSTANCE hInstance, LPSTR lpCmdLine)
 	if (m_fullScreen) {
 		MoveWindow(
 			m_windowHandle,
-			g_fullscreenRect.left,
-			g_fullscreenRect.top,
-			(g_fullscreenRect.right - g_fullscreenRect.left) + 1,
-			(g_fullscreenRect.bottom - g_fullscreenRect.top) + 1,
+			g_windowRect.left,
+			g_windowRect.top,
+			(g_windowRect.right - g_windowRect.left) + 1,
+			(g_windowRect.bottom - g_windowRect.top) + 1,
 			TRUE
 		);
 	}
