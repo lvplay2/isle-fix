@@ -55,6 +55,18 @@ jobs:
             -Werror=dev
           cmake --build build -- -k0
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+        name: Win32
+        path: |
+          build/CONFIG.EXE
+          build/CONFIG.PDB
+          build/ISLE.EXE
+          build/ISLE.PDB
+          build/LEGO1.DLL
+          build/LEGO1.PDB
+
   build:
     name: 'MSVC 4.20'
     runs-on: windows-latest
@@ -82,18 +94,6 @@ jobs:
         call .\msvc420\bin\VCVARS32.BAT x86
         cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DISLE_USE_SMARTHEAP=OFF -G "NMake Makefiles"
         cmake --build build
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@main
-      with:
-        name: Win32
-        path: |
-          build/CONFIG.EXE
-          build/CONFIG.PDB
-          build/ISLE.EXE
-          build/ISLE.PDB
-          build/LEGO1.DLL
-          build/LEGO1.PDB
 
   upload:
     name: Upload artifacts
