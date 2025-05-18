@@ -73,7 +73,9 @@ In order for this to run correctly, you'll need to download these DLLs and place
 - [d3drm.dll](https://github.com/le717/Island-Alternate-Installer/raw/refs/heads/master/resources/directx/d3drm.dll)
 - [ddraw.dll](https://github.com/le717/Island-Alternate-Installer/raw/refs/heads/master/resources/directx/ddraw.dll)
 
-For running LEGO island in windowed mode right click the LEGO Island executable/shortcut and click Properties in the context menu. Then switch to the "Compatibility" tab.
+If you're facing this problem:
+![alt text](https://i.imgur.com/F43M2lN.png)
+Right click the LEGO Island executable/shortcut and click Properties in the context menu. Then switch to the "Compatibility" tab.
 
 ![alt text](https://i.imgur.com/cngmbTo.png)
 
