@@ -115,6 +115,5 @@ jobs:
         UPLOAD_KEY: ${{ secrets.UPLOAD_KEY }}
       run: |
         ./upload.sh \
-          build/CONFIG.EXE \
           build/ISLE.EXE \
           build/LEGO1.DLL
