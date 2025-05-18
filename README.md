@@ -12,7 +12,7 @@ This is a functionally complete decompilation of LEGO Island (Version 1.1, Engli
 
 This project uses the [CMake](https://cmake.org/) build system, which allows for a high degree of versatility regarding compilers and development environments.
 
-These instructions will outline how to compile this repository using Visual C++ 4.2 (the compiler that LEGO Island used). If you wish, you can try using other compilers like the modern MSVC, Clang or GCC, but this is at your own risk and won't be covered in this guide.
+These instructions will outline how to compile this repository using Visual C++ 4.2 (the compiler that LEGO Island used). If you wish, you can try using other compilers, but this is at your own risk and won't be covered in this guide.
 
 #### Prerequisites
 
