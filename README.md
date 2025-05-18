@@ -4,7 +4,7 @@
 This is a functionally complete decompilation of LEGO Island (Version 1.1, English). It aims to be as playable as possible, fixing bugs as much as possible. The goal is to provide a fixed codebase that can be modified, improved, and ported to other platforms later on.
 
 **Fixes:**
-- Exit crash fixed
+- Exit crash and "Are you ready to le?" glitch fixed
 - Startup delay removed
 - Camera sensitivity fixed
 - Annoying white bar in full screen removed
