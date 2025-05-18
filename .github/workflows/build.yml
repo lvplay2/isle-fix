@@ -1,3 +1,4 @@
+
 name: Build
 
 on: [push, pull_request]
@@ -13,6 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         toolchain:
+        - { name: 'MSVC',           shell: 'sh',        setup-cmake: true, setup-ninja: true, setup-msvc: true }
         - { name: 'msys2 mingw32',  shell: 'msys2 {0}', msystem: mingw32, msys-env: mingw-w64-i686,        clang-tidy: true, werror: true }
 
     steps:
@@ -26,7 +28,6 @@ jobs:
             ${{ matrix.toolchain.msys-env }}-cmake
             ${{ matrix.toolchain.msys-env }}-ninja
             ${{ matrix.toolchain.msys-env }}-clang-tools-extra
-
       - name: Setup cmake
         if: matrix.toolchain.setup-cmake
         uses: jwlawson/actions-setup-cmake@v2
@@ -53,28 +54,6 @@ jobs:
             -DISLE_WERROR=${{ !!matrix.toolchain.werror }} \
             -Werror=dev
           cmake --build build -- -k0
-
-      - name: Copy required DLLs
-        run: |
-          cp /mingw32/bin/libstdc++-6.dll build/
-          cp /mingw32/bin/libgcc_s_dw2-1.dll build/
-          cp /mingw32/bin/libwinpthread-1.dll build/
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: Win32
-          path: |
-            build/libstdc++-6.dll
-            build/libgcc_s_dw2-1.dll
-            build/libwinpthread-1.dll
-            build/CONFIG.EXE
-            build/CONFIG.PDB
-            build/ISLE.EXE
-            build/ISLE.PDB
-            build/LEGO1.DLL
-            build/LEGO1.PDB
-
   build:
     name: 'MSVC 4.20'
     runs-on: windows-latest
@@ -95,14 +74,23 @@ jobs:
     - name: Patch MSVC 4.2
       run: |
         tools/patch_c2.py msvc420/bin/C2.EXE
-
     - name: Build
       shell: cmd
       run: |
         call .\msvc420\bin\VCVARS32.BAT x86
         cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DISLE_USE_SMARTHEAP=OFF -G "NMake Makefiles"
         cmake --build build
-
+    - name: Upload Artifact
+      uses: actions/upload-artifact@main
+      with:
+        name: Win32
+        path: |
+          build/CONFIG.EXE
+          build/CONFIG.PDB
+          build/ISLE.EXE
+          build/ISLE.PDB
+          build/LEGO1.DLL
+          build/LEGO1.PDB
   upload:
     name: Upload artifacts
     needs: [build]
@@ -124,5 +112,6 @@ jobs:
         UPLOAD_KEY: ${{ secrets.UPLOAD_KEY }}
       run: |
         ./upload.sh \
+          build/CONFIG.EXE \
           build/ISLE.EXE \
           build/LEGO1.DLL
