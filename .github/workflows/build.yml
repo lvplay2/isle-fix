@@ -48,18 +48,26 @@ jobs:
           cmake -S . -B build -GNinja \
             -DCMAKE_BUILD_TYPE=Debug \
             -DISLE_USE_SMARTHEAP=OFF \
-            -DCMAKE_CXX_FLAGS="-static-libgcc -static-libstdc++" \
             -DISLE_USE_DX5_LIBS=${{ !matrix.toolchain.no-dx5-libs }} \
             -DENABLE_CLANG_TIDY=${{ !!matrix.toolchain.clang-tidy }} \
             -DISLE_WERROR=${{ !!matrix.toolchain.werror }} \
             -Werror=dev
           cmake --build build -- -k0
 
+      - name: Copy required DLLs
+        run: |
+          cp /mingw32/bin/libstdc++-6.dll build/
+          cp /mingw32/bin/libgcc_s_seh-1.dll build/
+          cp /mingw32/bin/libwinpthread-1.dll build/
+
       - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
           name: Win32
           path: |
+            build/libstdc++-6.dll
+            build/libgcc_s_seh-1.dll
+            build/libwinpthread-1.dll
             build/CONFIG.EXE
             build/CONFIG.PDB
             build/ISLE.EXE
