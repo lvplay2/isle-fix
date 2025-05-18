@@ -48,6 +48,7 @@ jobs:
         run: |
           cmake -S . -B build -GNinja \
             -DCMAKE_BUILD_TYPE=Debug \
+            -DISLE_USE_SMARTHEAP=OFF \
             -DISLE_USE_DX5_LIBS=${{ !matrix.toolchain.no-dx5-libs }} \
             -DENABLE_CLANG_TIDY=${{ !!matrix.toolchain.clang-tidy }} \
             -DISLE_WERROR=${{ !!matrix.toolchain.werror }} \
@@ -79,7 +80,7 @@ jobs:
       shell: cmd
       run: |
         call .\msvc420\bin\VCVARS32.BAT x86
-        cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -G "NMake Makefiles"
+        cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DISLE_USE_SMARTHEAP=OFF -G "NMake Makefiles"
         cmake --build build
 
     - name: Upload Artifact
