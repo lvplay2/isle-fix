@@ -68,7 +68,14 @@ The simplest way to use the recompiled binaries is to swap the original executab
 
 For advanced users, you can get LEGO Island to run from anywhere as long as `ISLE.EXE` and `LEGO1.DLL` are in the same directory and the `cdpath` and `diskpath` registry keys (usually found in `HKEY_LOCAL_MACHINE\Software\Mindscape\LEGO Island` on 32-bit operating systems and `HKEY_LOCAL_MACHINE\Software\Wow6432Node\Mindscape\LEGO Island` on 64-bit operating systems) point to the correct location for the asset files (the directory that contains the `LEGO` folder).
 
-If you see an error about `d3drm.dll`, you will need to acquire a copy and place it in the same directory as the game executables, as it has not shipped with Windows since Windows XP. We have published a [known good copy here](https://legoisland.org/download/d3drm.zip) that works with LEGO Island.
+In order for this to run correctly, you'll need to download these DLLs and place them in your LEGO Island install location:
+
+- [d3drm.dll](https://github.com/le717/Island-Alternate-Installer/raw/refs/heads/master/resources/directx/d3drm.dll)
+- [ddraw.dll](https://github.com/le717/Island-Alternate-Installer/raw/refs/heads/master/resources/directx/ddraw.dll)
+
+For running LEGO island in windowed mode right click the LEGO Island executable/shortcut and click Properties in the context menu. Then switch to the "Compatibility" tab.
+
+![alt text](https://i.imgur.com/cngmbTo.png)
 
 ## Additional Information
 
