@@ -48,6 +48,7 @@ jobs:
           cmake -S . -B build -GNinja \
             -DCMAKE_BUILD_TYPE=Debug \
             -DISLE_USE_SMARTHEAP=OFF \
+            -DCMAKE_CXX_FLAGS="-static-libgcc -static-libstdc++" \
             -DISLE_USE_DX5_LIBS=${{ !matrix.toolchain.no-dx5-libs }} \
             -DENABLE_CLANG_TIDY=${{ !!matrix.toolchain.clang-tidy }} \
             -DISLE_WERROR=${{ !!matrix.toolchain.werror }} \
