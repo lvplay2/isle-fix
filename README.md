@@ -10,10 +10,9 @@ This is a functionally complete decompilation of LEGO Island (Version 1.1, Engli
 - Annoying white bar in full screen removed
 ## Building
 
-This project uses the [CMake](https://cmake.org/) build system, which allows for a high degree of versatility regarding compilers and development environments. For the most accurate results, Microsoft Visual C++ 4.20 (the same compiler used to build the original game) is recommended. Since we're trying to match the output of this code to the original executables as closely as possible, all contributions will be graded with the output of this compiler.
+This project uses the [CMake](https://cmake.org/) build system, which allows for a high degree of versatility regarding compilers and development environments.
 
-
-These instructions will outline how to compile this repository using Visual C++ 4.2 into highly-accurate binaries where the majority of functions are instruction-matching with retail. If you wish, you can try using other compilers, but this is at your own risk and won't be covered in this guide.
+These instructions will outline how to compile this repository using Visual C++ 4.2 (the compiler that LEGO Island used). If you wish, you can try using other compilers like the modern MSVC, Clang or GCC, but this is at your own risk and won't be covered in this guide.
 
 #### Prerequisites
 
