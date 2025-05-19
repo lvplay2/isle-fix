@@ -7,7 +7,7 @@
 DECOMP_SIZE_ASSERT(ViewROI, 0xe4)
 
 // GLOBAL: LEGO1 0x101013d8
-undefined g_unk101013d8 = 0;
+unsigned char g_lightSupport = FALSE;
 
 // FUNCTION: LEGO1 0x100a9eb0
 float ViewROI::IntrinsicImportance() const
