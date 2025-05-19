@@ -7,7 +7,7 @@ This is a functionally complete decompilation of LEGO Island (Version 1.1, Engli
 - Exit crash and "Are you ready to le?" glitch fixed
 - Startup delay removed
 - Camera sensitivity fixed
-- Annoying white bar in full screen removed
+- Annoying white bar in full screen fixed
 ## Building
 
 This project uses the [CMake](https://cmake.org/) build system, which allows for a high degree of versatility regarding compilers and development environments.
