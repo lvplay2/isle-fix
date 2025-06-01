@@ -45,8 +45,8 @@ LegoCarBuildAnimPresenter::~LegoCarBuildAnimPresenter()
 {
 	if (m_parts) {
 		for (MxS16 i = 0; i < m_numberOfParts; i++) {
-			delete m_parts[i].m_name;
-			delete m_parts[i].m_wiredName;
+			delete[] m_parts[i].m_name;
+			delete[] m_parts[i].m_wiredName;
 		}
 		delete[] m_parts;
 	}
@@ -431,7 +431,7 @@ void LegoCarBuildAnimPresenter::FUN_10079160()
 	destData->SetName(data2->GetName());
 
 	destNode->SetNumChildren(1);
-	children = new LegoTreeNode*;
+	children = new LegoTreeNode*[1];
 	assert(children);
 	*children = FindNodeByName(m_anim->GetRoot(), "PLATFORM");
 
@@ -457,7 +457,7 @@ void LegoCarBuildAnimPresenter::FUN_100795d0(LegoChar* p_param)
 		data->SetNumMorphKeys(1);
 		data->SetMorphKeys(newHideKey);
 
-		delete oldMorphKeys;
+		delete[] oldMorphKeys;
 	}
 }
 
@@ -473,7 +473,7 @@ void LegoCarBuildAnimPresenter::FUN_10079680(LegoChar* p_param)
 		data->SetNumMorphKeys(0);
 		data->SetMorphKeys(NULL);
 
-		delete oldMorphKeys;
+		delete[] oldMorphKeys;
 	}
 }
 
