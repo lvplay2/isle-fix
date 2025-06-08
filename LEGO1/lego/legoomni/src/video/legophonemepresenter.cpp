@@ -66,7 +66,7 @@ void LegoPhonemePresenter::StartingTickle()
 			if (!cursor.Find(phoneme)) {
 				LegoTextureInfo* textureInfo = TextureContainer()->GetCached(m_textureInfo);
 
-				CharacterManager()->FUN_100849a0(entityROI, textureInfo);
+				CharacterManager()->SetHeadTexture(entityROI, textureInfo);
 
 				phoneme->VTable0x0c(m_textureInfo);
 				phoneme->VTable0x14(textureInfo);
@@ -114,7 +114,7 @@ void LegoPhonemePresenter::LoadFrame(MxStreamChunk* p_chunk)
 void LegoPhonemePresenter::PutFrame()
 {
 	if (m_textureInfo != NULL && m_rectCount != 0) {
-		m_textureInfo->FUN_10066010(m_frameBitmap->GetImage());
+		m_textureInfo->LoadBits(m_frameBitmap->GetImage());
 		m_rectCount = 0;
 	}
 }
@@ -147,7 +147,7 @@ void LegoPhonemePresenter::EndAction()
 				}
 
 				if (roi != NULL) {
-					CharacterManager()->FUN_100849a0(roi, NULL);
+					CharacterManager()->SetHeadTexture(roi, NULL);
 				}
 
 				if (!m_unk0x84) {
